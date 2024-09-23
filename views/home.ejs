@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Movie List</title>
+    <link rel="stylesheet" href="/css/home.css">
+    <script src="/js/home.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Movie List</h1>
+    </header>
+
+    <main>
+      <div class="movie-list">
+        <% movies.forEach(function(movie) { %>
+        <div class="card">
+          <a href="/movie/<%= movie._id %>">
+            <img
+              src="<%= movie.poster ? movie.poster : 'https://t3.ftcdn.net/jpg/04/64/78/74/360_F_464787423_mFNIhM8f00HagGgI2eGzsf3wevZhPHCC.jpg' %>"
+              alt="Movie Image"
+            />
+            <div class="card-content">
+              <h2><%= movie.title %></h2>
+              <p><%= movie.genres %></p>
+            </div>
+          </a>
+        </div>
+        <% }); %>
+      </div>
+
+      <div class="pagination" id="pagination">
+        <button class="prev-button">Prev</button>
+        <button class="page-button"></button>
+        <button class="next-button">Next</button>
+      </div>
+    </main>
+  </body>
+</html>
